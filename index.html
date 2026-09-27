@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salon Magic — Vlasové studio Jablonec nad Nisou</title>
+<meta name="description" content="Salon Magic — vlasové studio v Jablonci nad Nisou. Hodnocení 4,9 z 17 recenzí na Googlu. Objednejte se telefonicky nebo e-mailem.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0f0d12;
+    --bg-alt:#161319;
+    --gold:#c9a24b;
+    --gold-light:#e4c778;
+    --text:#f5f2ee;
+    --text-muted:#c9c2ba;
+    --card:#1c1820;
+    --border:#2c2732;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    background:#fdfaf6;
+    color:#2a2530;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Playfair Display',serif;font-weight:700;}
+  a{color:inherit;text-decoration:none;}
+  .container{max-width:960px;margin:0 auto;padding:0 20px;}
+
+  header{
+    background:linear-gradient(160deg,var(--bg) 0%,var(--bg-alt) 100%);
+    color:var(--text);
+    padding:56px 0 48px;
+    text-align:center;
+  }
+  header .eyebrow{
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:.75rem;
+    color:var(--gold-light);
+    margin-bottom:14px;
+    font-weight:600;
+  }
+  header h1{
+    font-size:2.4rem;
+    color:var(--text);
+    margin-bottom:8px;
+  }
+  header .subtitle{
+    font-size:1.1rem;
+    color:var(--text-muted);
+    margin-bottom:22px;
+  }
+  .rating-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:rgba(201,162,75,0.12);
+    border:1px solid var(--gold);
+    color:var(--gold-light);
+    padding:10px 20px;
+    border-radius:999px;
+    font-size:.95rem;
+    font-weight:600;
+  }
+  .rating-badge .stars{color:var(--gold-light);letter-spacing:1px;}
+
+  nav{
+    display:flex;
+    justify-content:center;
+    gap:28px;
+    background:var(--bg-alt);
+    padding:14px 0;
+    flex-wrap:wrap;
+  }
+  nav a{
+    color:var(--text-muted);
+    font-size:.9rem;
+    font-weight:500;
+  }
+  nav a:hover{color:var(--gold-light);}
+
+  main section{
+    padding:52px 0;
+  }
+  main section:nth-of-type(even){
+    background:#f5efe6;
+  }
+  .section-title{
+    font-size:1.8rem;
+    margin-bottom:8px;
+    color:#1f1a24;
+  }
+  .section-lead{
+    color:#5c5460;
+    margin-bottom:32px;
+    max-width:560px;
+  }
+
+  .services-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+  @media(min-width:640px){
+    .services-grid{grid-template-columns:1fr 1fr;}
+  }
+  .service-card{
+    background:#fff;
+    border:1px solid #e6dcc9;
+    border-radius:12px;
+    padding:22px;
+  }
+  .service-card h3{
+    font-size:1.1rem;
+    margin-bottom:6px;
+    color:#1f1a24;
+  }
+  .service-card p{
+    color:#6b6270;
+    font-size:.95rem;
+  }
+
+  .hours-table{
+    width:100%;
+    max-width:480px;
+    border-collapse:collapse;
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 1px 3px rgba(0,0,0,.06);
+  }
+  .hours-table tr{border-bottom:1px solid #eee2cf;}
+  .hours-table tr:last-child{border-bottom:none;}
+  .hours-table td{padding:13px 18px;font-size:.95rem;}
+  .hours-table td:first-child{font-weight:600;color:#1f1a24;}
+  .hours-table td:last-child{text-align:right;color:#6b6270;}
+
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+  @media(min-width:640px){
+    .contact-grid{grid-template-columns:1fr 1fr;}
+  }
+  .contact-card{
+    background:var(--bg-alt);
+    color:var(--text);
+    border-radius:14px;
+    padding:26px;
+  }
+  .contact-card .label{
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    font-size:.72rem;
+    color:var(--gold-light);
+    font-weight:600;
+    margin-bottom:6px;
+  }
+  .contact-card .value{
+    font-size:1.15rem;
+    font-weight:600;
+    margin-bottom:18px;
+  }
+  .contact-card .value:last-child{margin-bottom:0;}
+  .btn{
+    display:inline-block;
+    background:var(--gold);
+    color:#1f1a24;
+    padding:13px 26px;
+    border-radius:8px;
+    font-weight:600;
+    font-size:.95rem;
+    margin-top:8px;
+  }
+  .btn:hover{background:var(--gold-light);}
+  .btn-outline{
+    display:inline-block;
+    border:1px solid var(--gold);
+    color:var(--gold-light);
+    padding:12px 26px;
+    border-radius:8px;
+    font-weight:600;
+    font-size:.95rem;
+    margin-top:8px;
+  }
+  address{font-style:normal;color:var(--text-muted);}
+
+  footer{
+    background:var(--bg);
+    color:#8a8290;
+    text-align:center;
+    padding:28px 20px;
+    font-size:.82rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="eyebrow">Vlasové studio · Jablonec nad Nisou</div>
+    <h1>Salon Magic</h1>
+    <p class="subtitle">Péče o vlasy s citem pro detail, v srdci Jablonce nad Nisou</p>
+    <div class="rating-badge">
+      <span class="stars">★★★★★</span>
+      <span>4,9 z 17 recenzí na Googlu</span>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <a href="#sluzby">Služby</a>
+  <a href="#oteviraci-doba">Otevírací doba</a>
+  <a href="#kontakt">Kontakt</a>
+</nav>
+
+<main>
+  <section id="sluzby">
+    <div class="container">
+      <h2 class="section-title">Naše služby</h2>
+      <p class="section-lead">Přehled běžných úkonů, které ve vlasovém studiu Salon Magic nabízíme. Přesný rozsah a doporučení vám ráda upřesní naše kadeřnice na místě.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Dámský a pánský střih</h3>
+          <p>Střih na míru podle tvaru obličeje a typu vlasů.</p>
+        </div>
+        <div class="service-card">
+          <h3>Barvení a melír</h3>
+          <p>Celobarvení, melír, balayage a další techniky zesvětlení.</p>
+        </div>
+        <div class="service-card">
+          <h3>Foukaná a styling</h3>
+          <p>Foukaná, žehlení, tvarování na běžné dny i speciální příležitosti.</p>
+        </div>
+        <div class="service-card">
+          <h3>Vlasová regenerace</h3>
+          <p>Péče a regenerační kúry pro poškozené nebo namáhané vlasy.</p>
+        </div>
+        <div class="service-card">
+          <h3>Svatební a společenské účesy</h3>
+          <p>Slavnostní účesy na míru pro výjimečné příležitosti.</p>
+        </div>
+        <div class="service-card">
+          <h3>Pánské holení a úprava vousů</h3>
+          <p>Úprava a tvarování vousů a plnovousu.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="oteviraci-doba">
+    <div class="container">
+      <h2 class="section-title">Otevírací doba</h2>
+      <p class="section-lead">Objednávky doporučujeme domlouvat předem telefonicky nebo e-mailem.</p>
+      <table class="hours-table">
+        <tr><td>Pondělí</td><td>9:00 – 18:00</td></tr>
+        <tr><td>Úterý</td><td>9:00 – 18:00</td></tr>
+        <tr><td>Středa</td><td>9:00 – 18:00</td></tr>
+        <tr><td>Čtvrtek</td><td>9:00 – 18:00</td></tr>
+        <tr><td>Pátek</td><td>9:00 – 17:00</td></tr>
+        <tr><td>Sobota</td><td>Po domluvě</td></tr>
+        <tr><td>Neděle</td><td>Zavřeno</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section id="kontakt">
+    <div class="container">
+      <h2 class="section-title">Kontakt</h2>
+      <p class="section-lead">Ozvěte se nám — rádi vás objednáme na termín, který vám bude vyhovovat.</p>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="label">Telefon</div>
+          <div class="value"><a href="tel:+420604240523">604 240 523</a></div>
+          <a class="btn" href="tel:+420604240523">Zavolat</a>
+        </div>
+        <div class="contact-card">
+          <div class="label">E-mail</div>
+          <div class="value"><a href="mailto:magicsalon@seznam.cz">magicsalon@seznam.cz</a></div>
+          <a class="btn" href="mailto:magicsalon@seznam.cz">Napsat e-mail</a>
+        </div>
+      </div>
+      <div class="contact-card" style="margin-top:20px;">
+        <div class="label">Adresa</div>
+        <address class="value" style="font-weight:600;color:var(--text);">Řetízková 4438/2, 466 01 Jablonec nad Nisou</address>
+        <a class="btn-outline" href="https://www.google.com/maps/search/?api=1&query=Salon+Magic+%C5%98et%C3%ADzkov%C3%A1+4438%2F2+466+01+Jablonec+nad+Nisou" target="_blank" rel="noopener noreferrer">Zobrazit na mapě</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Ukázka webu — Vladislav Zachariev</p>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HairSalon",
+  "name": "Salon Magic",
+  "image": "",
+  "telephone": "+420604240523",
+  "email": "magicsalon@seznam.cz",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Řetízková 4438/2",
+    "addressLocality": "Jablonec nad Nisou",
+    "postalCode": "466 01",
+    "addressCountry": "CZ"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "17"
+  }
+}
+</script>
+
+</body>
+</html>
