@@ -1,327 +1,270 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Salon Magic — Vlasové studio Jablonec nad Nisou</title>
-<meta name="description" content="Salon Magic — vlasové studio v Jablonci nad Nisou. Hodnocení 4,9 z 17 recenzí na Googlu. Objednejte se telefonicky nebo e-mailem.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Salon Magic – vlasové studio v Jablonci nad Nisou, otevřeno do 20 hodin</title>
+<meta name="description" content="Vlasové studio Salon Magic, Řetízková 4438, Jablonec nad Nisou. Pondělí až pátek 8–20, v sobotu a v neděli zavřeno. Objednání na telefonu 604 240 523.">
+<meta name="theme-color" content="#f5f0e8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16110e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500..700;1,6..96,400..500&family=Libre+Franklin:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#0f0d12;
-    --bg-alt:#161319;
-    --gold:#c9a24b;
-    --gold-light:#e4c778;
-    --text:#f5f2ee;
-    --text-muted:#c9c2ba;
-    --card:#1c1820;
-    --border:#2c2732;
-  }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    font-family:'Inter',system-ui,sans-serif;
-    background:#fdfaf6;
-    color:#2a2530;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3{font-family:'Playfair Display',serif;font-weight:700;}
-  a{color:inherit;text-decoration:none;}
-  .container{max-width:960px;margin:0 auto;padding:0 20px;}
+:root{
+  color-scheme:light dark;
+  --paper:#f5f0e8;
+  --ink:#211a17;
+  --muted:#685c54;
+  --rule:#d5cabd;
+  --signal:#a8431d;
+  --pad:clamp(1.25rem,5vw,3rem);
+  --display:'Bodoni Moda','Didot','Bodoni 72',Georgia,serif;
+  --text:'Libre Franklin',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--paper:#16110e;--ink:#efe7dc;--muted:#ab9d8f;--rule:#3d332c;--signal:#e8814f}
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.55 var(--text);overflow-wrap:break-word}
+h1,h2,p,ul,dl,figure,blockquote{margin:0}
+h1,h2{font-family:var(--display);font-weight:600;line-height:1}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:3px solid var(--signal);outline-offset:3px}
+abbr[title]{text-decoration:none}
+.frame{max-width:72rem;margin-inline:auto;padding-inline:var(--pad)}
 
-  header{
-    background:linear-gradient(160deg,var(--bg) 0%,var(--bg-alt) 100%);
-    color:var(--text);
-    padding:56px 0 48px;
-    text-align:center;
-  }
-  header .eyebrow{
-    text-transform:uppercase;
-    letter-spacing:.14em;
-    font-size:.75rem;
-    color:var(--gold-light);
-    margin-bottom:14px;
-    font-weight:600;
-  }
-  header h1{
-    font-size:2.4rem;
-    color:var(--text);
-    margin-bottom:8px;
-  }
-  header .subtitle{
-    font-size:1.1rem;
-    color:var(--text-muted);
-    margin-bottom:22px;
-  }
-  .rating-badge{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    background:rgba(201,162,75,0.12);
-    border:1px solid var(--gold);
-    color:var(--gold-light);
-    padding:10px 20px;
-    border-radius:999px;
-    font-size:.95rem;
-    font-weight:600;
-  }
-  .rating-badge .stars{color:var(--gold-light);letter-spacing:1px;}
+/* hlavička jako vizitka salonu */
+.top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.15rem 1.5rem;padding-top:1.1rem;padding-bottom:.8rem;border-bottom:1px solid var(--ink)}
+.brand{font:600 1.3rem/1.1 var(--display);letter-spacing:.02em}
+.top-addr{font-size:.9375rem;color:var(--muted)}
 
-  nav{
-    display:flex;
-    justify-content:center;
-    gap:28px;
-    background:var(--bg-alt);
-    padding:14px 0;
-    flex-wrap:wrap;
-  }
-  nav a{
-    color:var(--text-muted);
-    font-size:.9rem;
-    font-weight:500;
-  }
-  nav a:hover{color:var(--gold-light);}
+/* úvod */
+.hero{display:grid;grid-template-columns:minmax(0,1fr);gap:1.4rem;padding-top:1.9rem;padding-bottom:2.75rem}
+.hero > *{min-width:0}
+.hero h1{font:italic 500 clamp(3.5rem,17vw,9rem)/.9 var(--display);letter-spacing:-.02em}
+.hero h1 .sub{display:block;margin-top:.8rem;font:500 clamp(1.05rem,4.4vw,1.35rem)/1.3 var(--text);font-style:normal;letter-spacing:0}
+.lead{font-size:1.125rem;line-height:1.5;max-width:30rem}
 
-  main section{
-    padding:52px 0;
-  }
-  main section:nth-of-type(even){
-    background:#f5efe6;
-  }
-  .section-title{
-    font-size:1.8rem;
-    margin-bottom:8px;
-    color:#1f1a24;
-  }
-  .section-lead{
-    color:#5c5460;
-    margin-bottom:32px;
-    max-width:560px;
-  }
+/* otevírací doba: den jako pruh na ose od 6 do 22 hodin */
+.hours h2{font:600 1rem/1.2 var(--text);padding-bottom:.55rem;border-bottom:1px solid var(--ink)}
+.scale,.week li{display:grid;grid-template-columns:2.4rem minmax(0,1fr)}
+.scale{height:1.9rem;font-size:.8125rem;color:var(--muted)}
+.scale ol{position:relative;list-style:none;margin:0;padding:0;grid-column:2}
+.scale li{position:absolute;bottom:.4rem;left:calc((var(--h) - 6) / 16 * 100%);transform:translateX(-50%);white-space:nowrap;font-variant-numeric:tabular-nums}
+.scale li.end{color:var(--signal);font-weight:600}
+.week{list-style:none;margin:0;padding:0}
+.week abbr{font:600 1.2rem/1 var(--display);align-self:center}
+.track{position:relative;min-height:2.15rem;
+  background-image:linear-gradient(var(--rule),var(--rule)),linear-gradient(var(--rule),var(--rule)),linear-gradient(var(--rule),var(--rule)),linear-gradient(var(--signal),var(--signal));
+  background-size:1px 100%,1px 100%,1px 100%,2px 100%;
+  background-position:12.5% 0,37.5% 0,62.5% 0,87.5% 0;
+  background-repeat:no-repeat}
+.bar{position:absolute;top:.32rem;bottom:.32rem;left:12.5%;width:75%;display:flex;align-items:center;padding-left:.6rem;background:var(--ink);color:var(--paper);border-radius:2px;font:600 .9375rem/1 var(--text);font-variant-numeric:tabular-nums}
+.shut{position:absolute;top:50%;left:12.5%;transform:translateY(-50%);padding-left:.6rem;font:italic 400 1.0625rem/1 var(--display);color:var(--muted)}
+.week li.off abbr{color:var(--muted)}
+.week li.sat{border-top:1px dashed var(--rule)}
 
-  .services-grid{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:16px;
-  }
-  @media(min-width:640px){
-    .services-grid{grid-template-columns:1fr 1fr;}
-  }
-  .service-card{
-    background:#fff;
-    border:1px solid #e6dcc9;
-    border-radius:12px;
-    padding:22px;
-  }
-  .service-card h3{
-    font-size:1.1rem;
-    margin-bottom:6px;
-    color:#1f1a24;
-  }
-  .service-card p{
-    color:#6b6270;
-    font-size:.95rem;
-  }
+/* objednání */
+.phone{display:block;text-decoration:none;min-width:0}
+.phone-label{display:block;font:600 1rem/1.2 var(--text)}
+.phone-num{display:block;font:500 clamp(2.5rem,12.4vw,5.25rem)/1.05 var(--display);white-space:nowrap;margin-top:.1rem;text-decoration:underline;text-decoration-color:var(--signal);text-decoration-thickness:3px;text-underline-offset:.12em;font-variant-numeric:lining-nums}
+.phone:hover .phone-num{text-decoration-thickness:5px}
+.more{display:grid;gap:.55rem;font-size:1rem;max-width:30rem}
+.more p{color:var(--muted)}
+.more a{color:var(--ink);font-weight:600}
 
-  .hours-table{
-    width:100%;
-    max-width:480px;
-    border-collapse:collapse;
-    background:#fff;
-    border-radius:12px;
-    overflow:hidden;
-    box-shadow:0 1px 3px rgba(0,0,0,.06);
-  }
-  .hours-table tr{border-bottom:1px solid #eee2cf;}
-  .hours-table tr:last-child{border-bottom:none;}
-  .hours-table td{padding:13px 18px;font-size:.95rem;}
-  .hours-table td:first-child{font-weight:600;color:#1f1a24;}
-  .hours-table td:last-child{text-align:right;color:#6b6270;}
+/* sekce: štítek vlevo, obsah vpravo */
+.band{border-top:1px solid var(--ink);padding-top:2.25rem;padding-bottom:2.75rem}
+.split{display:grid;grid-template-columns:minmax(0,1fr);gap:1.25rem 3rem}
+.split > *{min-width:0}
+.split h2{font-size:clamp(2rem,7.5vw,3rem);line-height:1.02;max-width:12ch;overflow-wrap:normal;font-variation-settings:"opsz" 24}
+.aside p{margin-top:.9rem;max-width:22rem}
 
-  .contact-grid{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:20px;
-  }
-  @media(min-width:640px){
-    .contact-grid{grid-template-columns:1fr 1fr;}
-  }
-  .contact-card{
-    background:var(--bg-alt);
-    color:var(--text);
-    border-radius:14px;
-    padding:26px;
-  }
-  .contact-card .label{
-    text-transform:uppercase;
-    letter-spacing:.1em;
-    font-size:.72rem;
-    color:var(--gold-light);
-    font-weight:600;
-    margin-bottom:6px;
-  }
-  .contact-card .value{
-    font-size:1.15rem;
-    font-weight:600;
-    margin-bottom:18px;
-  }
-  .contact-card .value:last-child{margin-bottom:0;}
-  .btn{
-    display:inline-block;
-    background:var(--gold);
-    color:#1f1a24;
-    padding:13px 26px;
-    border-radius:8px;
-    font-weight:600;
-    font-size:.95rem;
-    margin-top:8px;
-  }
-  .btn:hover{background:var(--gold-light);}
-  .btn-outline{
-    display:inline-block;
-    border:1px solid var(--gold);
-    color:var(--gold-light);
-    padding:12px 26px;
-    border-radius:8px;
-    font-weight:600;
-    font-size:.95rem;
-    margin-top:8px;
-  }
-  address{font-style:normal;color:var(--text-muted);}
+/* co říct při objednání */
+.ask{list-style:none;padding:0;margin:0;max-width:40rem}
+.ask li{padding-top:.95rem;padding-bottom:1rem;border-top:1px solid var(--rule)}
+.ask li:first-child{border-top:0;padding-top:0}
+.ask strong{display:block;font:600 1.5rem/1.15 var(--display);margin-bottom:.25rem}
+.ask .mailnote{color:var(--muted);font-size:1rem}
 
-  footer{
-    background:var(--bg);
-    color:#8a8290;
-    text-align:center;
-    padding:28px 20px;
-    font-size:.82rem;
-  }
+/* recenze */
+.rating strong{font-weight:600}
+.q{padding-top:1.4rem;padding-bottom:1.5rem;border-top:1px solid var(--rule)}
+.q:first-child{border-top:0;padding-top:0}
+.q .about{font:italic 400 1.25rem/1 var(--display);color:var(--muted);margin-bottom:.55rem}
+.q blockquote{font-size:1.125rem;line-height:1.5;max-width:38rem}
+.q.lead-q blockquote{font:500 clamp(1.5rem,5.6vw,2.2rem)/1.25 var(--display);max-width:40rem}
+.q figcaption{margin-top:.7rem;font-weight:600}
+
+/* adresa */
+.addr{font:600 clamp(2rem,8.6vw,3.5rem)/1.05 var(--display);font-variation-settings:"opsz" 18}
+.go{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.25rem;margin-bottom:1.75rem}
+.go a{display:inline-flex;align-items:center;min-height:2.875rem;padding:0 1.1rem;border:1px solid var(--ink);border-radius:3px;text-decoration:none;font-weight:600}
+.go a:first-child{background:var(--ink);color:var(--paper)}
+.go a:hover{text-decoration:underline}
+.facts{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:.55rem 1rem;max-width:34rem;font-size:1rem}
+.facts dt{color:var(--muted)}
+.facts dd{margin:0}
+
+.foot{border-top:1px solid var(--ink);padding-top:1.1rem;padding-bottom:1.6rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.4rem 2rem;font-size:.875rem;color:var(--muted)}
+
+@media (min-width:56rem){
+  .hero{grid-template-columns:minmax(0,4fr) minmax(0,8fr);grid-template-areas:"h1 h1" "lead hours" "more phone";column-gap:3rem;row-gap:2.25rem;padding-top:3rem;padding-bottom:3.5rem}
+  .hero h1{grid-area:h1}
+  .lead{grid-area:lead;padding-top:2.4rem}
+  .hours{grid-area:hours}
+  .phone{grid-area:phone;align-self:start}
+  .more{grid-area:more;align-self:end;padding-bottom:.6rem}
+  .scale,.week li{grid-template-columns:3.2rem minmax(0,1fr)}
+  .track{min-height:2.6rem}
+  .scale{font-size:.875rem}
+  .split{grid-template-columns:minmax(0,4fr) minmax(0,8fr)}
+  .band{padding-top:3rem;padding-bottom:3.5rem}
+}
 </style>
-</head>
-<body>
-
-<header>
-  <div class="container">
-    <div class="eyebrow">Vlasové studio · Jablonec nad Nisou</div>
-    <h1>Salon Magic</h1>
-    <p class="subtitle">Péče o vlasy s citem pro detail, v srdci Jablonce nad Nisou</p>
-    <div class="rating-badge">
-      <span class="stars">★★★★★</span>
-      <span>4,9 z 17 recenzí na Googlu</span>
-    </div>
-  </div>
-</header>
-
-<nav>
-  <a href="#sluzby">Služby</a>
-  <a href="#oteviraci-doba">Otevírací doba</a>
-  <a href="#kontakt">Kontakt</a>
-</nav>
-
-<main>
-  <section id="sluzby">
-    <div class="container">
-      <h2 class="section-title">Naše služby</h2>
-      <p class="section-lead">Přehled běžných úkonů, které ve vlasovém studiu Salon Magic nabízíme. Přesný rozsah a doporučení vám ráda upřesní naše kadeřnice na místě.</p>
-      <div class="services-grid">
-        <div class="service-card">
-          <h3>Dámský a pánský střih</h3>
-          <p>Střih na míru podle tvaru obličeje a typu vlasů.</p>
-        </div>
-        <div class="service-card">
-          <h3>Barvení a melír</h3>
-          <p>Celobarvení, melír, balayage a další techniky zesvětlení.</p>
-        </div>
-        <div class="service-card">
-          <h3>Foukaná a styling</h3>
-          <p>Foukaná, žehlení, tvarování na běžné dny i speciální příležitosti.</p>
-        </div>
-        <div class="service-card">
-          <h3>Vlasová regenerace</h3>
-          <p>Péče a regenerační kúry pro poškozené nebo namáhané vlasy.</p>
-        </div>
-        <div class="service-card">
-          <h3>Svatební a společenské účesy</h3>
-          <p>Slavnostní účesy na míru pro výjimečné příležitosti.</p>
-        </div>
-        <div class="service-card">
-          <h3>Pánské holení a úprava vousů</h3>
-          <p>Úprava a tvarování vousů a plnovousu.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="oteviraci-doba">
-    <div class="container">
-      <h2 class="section-title">Otevírací doba</h2>
-      <p class="section-lead">Objednávky doporučujeme domlouvat předem telefonicky nebo e-mailem.</p>
-      <table class="hours-table">
-        <tr><td>Pondělí</td><td>9:00 – 18:00</td></tr>
-        <tr><td>Úterý</td><td>9:00 – 18:00</td></tr>
-        <tr><td>Středa</td><td>9:00 – 18:00</td></tr>
-        <tr><td>Čtvrtek</td><td>9:00 – 18:00</td></tr>
-        <tr><td>Pátek</td><td>9:00 – 17:00</td></tr>
-        <tr><td>Sobota</td><td>Po domluvě</td></tr>
-        <tr><td>Neděle</td><td>Zavřeno</td></tr>
-      </table>
-    </div>
-  </section>
-
-  <section id="kontakt">
-    <div class="container">
-      <h2 class="section-title">Kontakt</h2>
-      <p class="section-lead">Ozvěte se nám — rádi vás objednáme na termín, který vám bude vyhovovat.</p>
-      <div class="contact-grid">
-        <div class="contact-card">
-          <div class="label">Telefon</div>
-          <div class="value"><a href="tel:+420604240523">604 240 523</a></div>
-          <a class="btn" href="tel:+420604240523">Zavolat</a>
-        </div>
-        <div class="contact-card">
-          <div class="label">E-mail</div>
-          <div class="value"><a href="mailto:magicsalon@seznam.cz">magicsalon@seznam.cz</a></div>
-          <a class="btn" href="mailto:magicsalon@seznam.cz">Napsat e-mail</a>
-        </div>
-      </div>
-      <div class="contact-card" style="margin-top:20px;">
-        <div class="label">Adresa</div>
-        <address class="value" style="font-weight:600;color:var(--text);">Řetízková 4438/2, 466 01 Jablonec nad Nisou</address>
-        <a class="btn-outline" href="https://www.google.com/maps/search/?api=1&query=Salon+Magic+%C5%98et%C3%ADzkov%C3%A1+4438%2F2+466+01+Jablonec+nad+Nisou" target="_blank" rel="noopener noreferrer">Zobrazit na mapě</a>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <p>Ukázka webu — Vladislav Zachariev</p>
-</footer>
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "HairSalon",
   "name": "Salon Magic",
-  "image": "",
-  "telephone": "+420604240523",
+  "alternateName": "Loréal Salon Magic",
+  "description": "Vlasové studio v Jablonci nad Nisou, otevřeno pondělí až pátek 8–20.",
+  "telephone": "+420 604 240 523",
   "email": "magicsalon@seznam.cz",
+  "identifier": {"@type": "PropertyValue", "propertyID": "IČO", "value": "40220443"},
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Řetízková 4438/2",
-    "addressLocality": "Jablonec nad Nisou",
+    "streetAddress": "Řetízková 4438",
     "postalCode": "466 01",
+    "addressLocality": "Jablonec nad Nisou",
     "addressCountry": "CZ"
   },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "17"
-  }
+  "geo": {"@type": "GeoCoordinates", "latitude": 50.722770, "longitude": 15.156616},
+  "hasMap": "https://www.google.com/maps/place/Lor%C3%A9al+Salon+Magic/data=!4m7!3m6!1s0x47093532f01819e9:0x9410fc8663514236!8m2!3d50.7227704!4d15.1566159!16s%2Fg%2F12qfc9qcv!19sChIJ6RkY8DI1CUcRNkJRY4b8EJQ",
+  "openingHours": "Mo-Fr 08:00-20:00",
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "08:00",
+    "closes": "20:00"
+  }],
+  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "bestRating": "5", "worstRating": "1", "ratingCount": "17"}
 }
 </script>
+</head>
+<body>
+
+<header class="top frame">
+  <span class="brand">Salon Magic</span>
+  <span class="top-addr">Vlasové studio, Jablonec nad&nbsp;Nisou</span>
+</header>
+
+<main>
+
+<section class="hero frame" aria-labelledby="titulek">
+  <h1 id="titulek">Do osmi večer.<span class="sub">Pondělí až pátek, v&nbsp;Jablonci nad&nbsp;Nisou</span></h1>
+
+  <a class="phone" href="tel:+420604240523">
+    <span class="phone-label">Objednání</span>
+    <span class="phone-num">604 240 523</span>
+  </a>
+
+  <div class="hours">
+    <h2>Otevírací doba</h2>
+    <div class="scale" aria-hidden="true">
+      <ol>
+        <li style="--h:8">8.00</li>
+        <li style="--h:12">12.00</li>
+        <li style="--h:16">16.00</li>
+        <li class="end" style="--h:20">20.00</li>
+      </ol>
+    </div>
+    <ul class="week">
+      <li><abbr title="pondělí">Po</abbr><span class="track"><span class="bar">8–20</span></span></li>
+      <li><abbr title="úterý">Út</abbr><span class="track"><span class="bar">8–20</span></span></li>
+      <li><abbr title="středa">St</abbr><span class="track"><span class="bar">8–20</span></span></li>
+      <li><abbr title="čtvrtek">Čt</abbr><span class="track"><span class="bar">8–20</span></span></li>
+      <li><abbr title="pátek">Pá</abbr><span class="track"><span class="bar">8–20</span></span></li>
+      <li class="off sat"><abbr title="sobota">So</abbr><span class="track"><span class="shut">zavřeno</span></span></li>
+      <li class="off"><abbr title="neděle">Ne</abbr><span class="track"><span class="shut">zavřeno</span></span></li>
+    </ul>
+  </div>
+
+  <p class="lead">Otevírá se v&nbsp;osm ráno a&nbsp;zavírá až ve dvacet hodin, takže se na střih nebo barvu dá přijít i&nbsp;po práci.</p>
+
+  <div class="more">
+    <p>Radši píšete? E-mail: <a href="mailto:magicsalon@seznam.cz">magicsalon@seznam.cz</a></p>
+    <p><a href="#recenze">16 ze 17 hodnocení na Googlu je pět hvězd.</a></p>
+  </div>
+</section>
+
+<section class="band frame" aria-labelledby="objednat">
+  <div class="split">
+    <div class="aside">
+      <h2 id="objednat">Co říct při objednání</h2>
+      <p>Tři věci. Podle nich se odhadne, jak dlouho budete v&nbsp;křesle, a&nbsp;najde se termín, který vám sedne.</p>
+    </div>
+    <ul class="ask">
+      <li><p><strong>Jak dlouhé máte vlasy.</strong> Nakrátko, po ramena, nebo delší.</p></li>
+      <li><p><strong>Barva ano, nebo ne.</strong> A&nbsp;jestli máte vlasy teď barvené, i&nbsp;kdyby to bylo doma z&nbsp;krabičky.</p></li>
+      <li><p><strong>Kolik máte času.</strong> A&nbsp;odkdy můžete. Když to stihnete až po práci, řekněte to rovnou, zavírá se ve dvacet hodin.</p></li>
+      <li><p class="mailnote">Totéž platí pro e-mail. Napište všechny tři věci a&nbsp;den, který se vám hodí.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="band frame" id="recenze" aria-labelledby="recenze-h">
+  <div class="split">
+    <div class="aside">
+      <h2 id="recenze-h">Z&nbsp;recenzí na Googlu</h2>
+      <p class="rating"><strong>16 ze 17</strong> hodnocení je pět hvězd, průměr 4,9. To sedmnácté dává čtyři hvězdy.</p>
+      <p><a href="https://www.google.com/maps/place/Lor%C3%A9al+Salon+Magic/data=!4m7!3m6!1s0x47093532f01819e9:0x9410fc8663514236!8m2!3d50.7227704!4d15.1566159!16s%2Fg%2F12qfc9qcv!19sChIJ6RkY8DI1CUcRNkJRY4b8EJQ" target="_blank" rel="noopener">Všechny recenze v&nbsp;Mapách Google</a></p>
+    </div>
+    <div class="quotes">
+      <figure class="q lead-q">
+        <p class="about">O&nbsp;kadeřnici</p>
+        <blockquote>Paní majetelka je velmi šikovná kadeřnice a vždy si poradí ať máte jakékoliv přání.</blockquote>
+        <figcaption>Monika M.</figcaption>
+      </figure>
+      <figure class="q">
+        <p class="about">O&nbsp;salonu</p>
+        <blockquote>Za mě jeden z nejlepších salónů, co jsem kdy navštívil, skvělá a naprosto sympatická paní! Nejvíc doporučuju!</blockquote>
+        <figcaption>Stanislav K.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="band frame" aria-labelledby="kde">
+  <div class="split">
+    <h2 id="kde">Kde salon najdete</h2>
+    <div>
+      <p class="addr">Řetízková 4438,<br> 466&nbsp;01 Jablonec nad Nisou&nbsp;1</p>
+      <p class="go">
+        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=50.722770%2C15.156616" target="_blank" rel="noopener">Navigovat sem</a>
+        <a href="https://www.google.com/maps/place/Lor%C3%A9al+Salon+Magic/data=!4m7!3m6!1s0x47093532f01819e9:0x9410fc8663514236!8m2!3d50.7227704!4d15.1566159!16s%2Fg%2F12qfc9qcv!19sChIJ6RkY8DI1CUcRNkJRY4b8EJQ" target="_blank" rel="noopener">Otevřít v&nbsp;Mapách Google</a>
+      </p>
+      <dl class="facts">
+        <dt>Telefon</dt><dd><a href="tel:+420604240523">604 240 523</a></dd>
+        <dt>E-mail</dt><dd><a href="mailto:magicsalon@seznam.cz">magicsalon@seznam.cz</a></dd>
+        <dt>Otevřeno</dt><dd>pondělí až pátek 8–20</dd>
+        <dt>GPS</dt><dd>50.722770, 15.156616</dd>
+        <dt>IČO</dt><dd>40220443</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot frame">
+  <p>Salon Magic, IČO 40220443</p>
+  <p>Ukázka webu — Vladislav Zachariev</p>
+</footer>
 
 </body>
 </html>
